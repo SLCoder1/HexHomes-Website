@@ -1,0 +1,10 @@
+.Socials{
+position: relative;
+  left: 600px;
+  top: 0;
+  width: 150px;
+  height: auto;
+  z-index: 1; /* Updated to 1 so it stays above the video but below other content */
+  max-width: 150px;
+  background-color: black;
+}

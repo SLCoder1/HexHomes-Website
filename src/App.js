@@ -1,23 +1,29 @@
-import logo from './logo.svg';
+import React, { useRef } from 'react';
 import './App.css';
+import VideoBackground from './VideoBackground';
+import LearnMore from './LearnMore';
+import Footer from './Footer'; // Import Footer component
 
 function App() {
+  const secondComponentRef = useRef(null);
+
+  const scrollToSecondComponent = () => {
+    if (secondComponentRef.current) {
+      secondComponentRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <VideoBackground>
+        <button onClick={scrollToSecondComponent} className="overlay-button">
+          Learn More About Our Mission
+        </button>
+      </VideoBackground>
+
+      <LearnMore ref={secondComponentRef} />
+
+      <Footer /> {/* Add Footer here */}
     </div>
   );
 }
